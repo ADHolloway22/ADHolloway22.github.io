@@ -21,3 +21,8 @@ p {
   font-size: 18px;
   line-height: 1.6;
 }
+
+/* Accent example (like navigation or highlights) */
+.accent {
+  color: #F97316;   /* Bright Orange (Accent) */
+}
