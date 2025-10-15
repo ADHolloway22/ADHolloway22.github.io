@@ -104,7 +104,7 @@ p {
 }
 
 .styled-list li:hover {
-  color: #ff69b4; /* Hot pink */
+  color: #ff69b4; 
   transform: scale(1.05);
   cursor: pointer;
 }
