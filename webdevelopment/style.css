@@ -86,19 +86,25 @@ p {
 }
 
 .styled-list {
-  list-style-type: square;
-  font-size: 1.2rem;
-  color: #333;
-  padding-left: 30px;
-  margin-top: 20px;
+  list-style-type: circle;
+  font-family: 'Comic Sans MS', cursive, sans-serif;  
+  font-size: 1.4rem;
+  color: #6a0dad; 
+  padding-left: 35px;
+  margin-top: 25px;
+  background-color: #f9f3ff; 
+  border: 2px dashed #dcd0ff;
+  border-radius: 10px;
+  padding: 15px;
 }
 
 .styled-list li {
-  margin-bottom: 10px;
-  transition: color 0.3s ease;
+  margin-bottom: 12px;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .styled-list li:hover {
-  color: #007BFF;
+  color: #ff69b4; /* Hot pink */
+  transform: scale(1.05);
   cursor: pointer;
 }
