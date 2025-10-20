@@ -134,3 +134,23 @@ p {
   transform: scale(1.05);
   cursor: pointer;
 }
+
+/* Box model for the reflection paragraphs */
+.reflection-box {
+  padding: 20px;
+  border: 2px solid #ccc;
+  margin: 20px;
+  background-color: #f9f9f9;
+}
+
+/* Style the first letter of the first paragraph */
+.first-paragraph::first-letter {
+  font-size: 2em;
+  font-weight: bold;
+  color: darkblue;
+}
+
+/* Indent the first line of all paragraphs except the first */
+.reflection-box p:not(.first-paragraph) {
+  text-indent: 2em;
+}
