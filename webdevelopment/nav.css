@@ -60,3 +60,42 @@ header {
     width: 100%;
   }
 }
+
+/* Navigation bar */
+.nav-menu {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  background-color: #333;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu li a {
+  display: block;
+  padding: 15px 20px;
+  text-decoration: none;
+  color: white;
+}
+
+.nav-menu li a:hover {
+  background-color: #555;
+}
+
+/* 2-tier dropdown example (if required for extra credit or bonus) */
+.nav-menu li {
+  position: relative;
+}
+
+.nav-menu li ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  list-style: none;
+  background-color: #333;
+}
+
+.nav-menu li:hover ul {
+  display: block;
+}
