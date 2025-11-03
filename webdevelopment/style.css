@@ -524,3 +524,29 @@ footer p {
     page-break-inside: avoid;
   }
 }
+
+
+
+.contact-info {
+  margin-top: 10px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.contact-icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.contact-info a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
