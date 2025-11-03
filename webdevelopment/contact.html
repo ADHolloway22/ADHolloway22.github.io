@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reflection</title>
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="nav.css" />
+</head>
+
+<body>
+  <header>
+    <img 
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1024px-React-icon.svg.png" 
+      alt="Your Site Logo" 
+      class="site-logo"
+    />
+    <h1>Your Site Title</h1>
+
+    <nav>
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" id="hamburger">&#9776;</label>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+
+        <li class="dropdown">
+          <a href="projects.html">Projects</a>
+          <ul class="dropdown-content">
+            <li><a href="project1.html">Project 1</a></li>
+            <li><a href="project2.html">Project 2</a></li>
+            <li><a href="project3.html">Project 3</a></li>
+          </ul>
+        </li>
+
+        <li><a href="reflection.html">Reflection</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="contact-container">
+      <h2>Get In Touch</h2>
+      <p class="subtitle">We'd love to hear from you. Fill out the form below and we'll get back to you soon.</p>
+
+      <form action="#" method="POST">
+        <!-- Title Dropdown -->
+        <div class="form-group">
+          <label for="title">Title *</label>
+          <select id="title" name="title" required>
+            <option value="">Select your title</option>
+            <option value="mr">Mr.</option>
+            <option value="ms">Ms.</option>
+            <option value="mrs">Mrs.</option>
+            <option value="dr">Dr.</option>
+            <option value="prof">Prof.</option>
+            <option value="mx">Mx.</option>
+          </select>
+        </div>
+
+        <!-- Full Name -->
+        <div class="form-group">
+          <label for="fullname">Full Name *</label>
+          <input 
+            type="text" 
+            id="fullname" 
+            name="fullname" 
+            placeholder="Enter your full name" 
+            required
+          />
+        </div>
+
+        <!-- Email Address -->
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            placeholder="your.email@example.com" 
+            required
+          />
+        </div>
+
+        <!-- Message -->
+        <div class="form-group">
+          <label for="message">Message *</label>
+          <textarea 
+            id="message" 
+            name="message" 
+            placeholder="Tell us what's on your mind..." 
+            required
+          ></textarea>
+        </div>
+
+        <!-- Select Button (Preferred Contact Method) -->
+        <div class="form-group">
+          <label>Preferred Contact Method *</label>
+          <div class="radio-group">
+            <div class="radio-option">
+              <input 
+                type="radio" 
+                id="contact-email" 
+                name="contact-method" 
+                value="email" 
+                required
+              />
+              <label for="contact-email">Email</label>
+            </div>
+            <div class="radio-option">
+              <input 
+                type="radio" 
+                id="contact-phone" 
+                name="contact-method" 
+                value="phone"
+              />
+              <label for="contact-phone">Phone</label>
+            </div>
+            <div class="radio-option">
+              <input 
+                type="radio" 
+                id="contact-either" 
+                name="contact-method" 
+                value="either"
+              />
+              <label for="contact-either">Either</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>Created by Ashton Holloway – September 29, 2025</p>
+    <div class="contact-info">
+      <p>
+        <img src="images/phone-icon.png" alt="Phone" class="contact-icon" />
+        <a href="tel:+18162886724">(816) 288-6724</a>
+      </p>
+      <p>
+        <img src="images/email-icon.png" alt="Email" class="contact-icon" />
+        <a href="mailto:adholloway_22@yahoo.com">adholloway_22@yahoo.com</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
