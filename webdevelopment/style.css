@@ -22,46 +22,81 @@ body {
 header {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
-  padding: 1.5rem 2rem;
+  padding: 1rem 1.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .site-logo {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   filter: brightness(0) invert(1);
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 header h1 {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: 0.5px;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   text-align: center;
+}
+
+/* Desktop Header */
+@media (min-width: 769px) {
+  header {
+    padding: 1.5rem 2rem;
+  }
+
+  .site-logo {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1rem;
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
 }
 
 /* ========================================
    MAIN CONTENT - CSS GRID LAYOUT
    ======================================== */
 
+/* Mobile First Layout */
 main {
   max-width: 1200px;
-  margin: 2rem auto;
-  padding: 2rem;
+  margin: 1rem auto;
+  padding: 1.5rem;
   background: white;
   box-shadow: 0 0 8px rgba(0,0,0,0.1);
   border-radius: 8px;
   
   /* CSS GRID IMPLEMENTATION */
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 2rem;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
   grid-template-areas:
-    "resume resume"
-    "name name"
-    "sidebar content"
-    "video video";
+    "resume"
+    "name"
+    "sidebar"
+    "content"
+    "video";
+}
+
+/* Desktop Grid Layout */
+@media (min-width: 769px) {
+  main {
+    margin: 2rem auto;
+    padding: 2rem;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    grid-template-areas:
+      "resume resume"
+      "name name"
+      "sidebar content"
+      "video video";
+  }
 }
 
 /* Grid Area Assignments */
@@ -85,37 +120,22 @@ main {
   grid-area: video;
 }
 
-/* Responsive Grid - Mobile */
-@media (max-width: 768px) {
-  main {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "resume"
-      "name"
-      "sidebar"
-      "content"
-      "video";
-    padding: 1.5rem;
-    gap: 1.5rem;
-  }
-}
-
 /* ========================================
    TYPOGRAPHY
    ======================================== */
 
 .print-name {
   color: #667eea;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   margin-bottom: 1rem;
   text-align: center;
-  padding-bottom: 1rem;
+  padding-bottom: 0.75rem;
   border-bottom: 3px solid #667eea;
 }
 
 h2 {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   color: #667eea;
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
@@ -123,9 +143,9 @@ h2 {
 }
 
 h3 {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: #764ba2;
-  margin-top: 1.5rem;
+  margin-top: 1.25rem;
   margin-bottom: 0.75rem;
 }
 
@@ -133,6 +153,28 @@ p {
   line-height: 1.8;
   margin-bottom: 1rem;
   color: #555;
+  font-size: 0.95rem;
+}
+
+/* Desktop Typography */
+@media (min-width: 769px) {
+  .print-name {
+    font-size: 2.5rem;
+    padding-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    margin-top: 1.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
 }
 
 /* ========================================
@@ -141,9 +183,9 @@ p {
 
 .sidebar-section {
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  padding: 1.5rem;
+  padding: 1.25rem;
   border-radius: 8px;
-  border-left: 5px solid #667eea;
+  border-left: 4px solid #667eea;
 }
 
 .profile-image {
@@ -152,12 +194,24 @@ p {
   height: auto;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   transition: transform 0.3s ease;
 }
 
 .profile-image:hover {
   transform: scale(1.03);
+}
+
+/* Desktop Sidebar */
+@media (min-width: 769px) {
+  .sidebar-section {
+    padding: 1.5rem;
+    border-left: 5px solid #667eea;
+  }
+
+  .profile-image {
+    margin-bottom: 1.5rem;
+  }
 }
 
 /* ========================================
@@ -167,7 +221,14 @@ p {
 .main-content {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
+}
+
+/* Desktop Main Content */
+@media (min-width: 769px) {
+  .main-content {
+    gap: 2rem;
+  }
 }
 
 /* Education List */
@@ -175,27 +236,51 @@ p {
   list-style-type: none;
   padding-left: 0;
   display: grid;
-  gap: 1rem;
+  gap: 0.875rem;
 }
 
 .education li {
-  padding: 1.25rem;
+  padding: 1rem;
   background: #f8f9fa;
-  border-left: 4px solid #667eea;
+  border-left: 3px solid #667eea;
   border-radius: 6px;
   transition: transform 0.2s, box-shadow 0.2s;
+  font-size: 0.9rem;
 }
 
 .education li:hover {
-  transform: translateX(8px);
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  transform: translateX(5px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 
 .education li strong {
   color: #667eea;
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+/* Desktop Education List */
+@media (min-width: 769px) {
+  .education {
+    gap: 1rem;
+  }
+
+  .education li {
+    padding: 1.25rem;
+    border-left: 4px solid #667eea;
+    font-size: 1rem;
+  }
+
+  .education li:hover {
+    transform: translateX(8px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  .education li strong {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+  }
 }
 
 /* Hobbies List */
@@ -203,20 +288,37 @@ p {
   list-style-type: none;
   padding-left: 0;
   display: grid;
-  gap: 0.75rem;
+  gap: 0.625rem;
 }
 
 .styled-list li {
-  padding: 0.75rem 1rem;
+  padding: 0.625rem 0.875rem;
   background: #f8f9fa;
   border-left: 3px solid #764ba2;
   border-radius: 4px;
   transition: all 0.2s;
+  font-size: 0.9rem;
 }
 
 .styled-list li:hover {
   background: #e9ecef;
-  transform: translateX(5px);
+  transform: translateX(4px);
+}
+
+/* Desktop Hobbies List */
+@media (min-width: 769px) {
+  .styled-list {
+    gap: 0.75rem;
+  }
+
+  .styled-list li {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+  }
+
+  .styled-list li:hover {
+    transform: translateX(5px);
+  }
 }
 
 /* ========================================
@@ -225,7 +327,7 @@ p {
 
 .resume-link {
   display: inline-block;
-  padding: 0.875rem 1.75rem;
+  padding: 0.75rem 1.5rem;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   text-decoration: none;
@@ -234,11 +336,20 @@ p {
   text-align: center;
   transition: transform 0.2s, box-shadow 0.3s;
   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  font-size: 0.95rem;
 }
 
 .resume-link:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+/* Desktop Resume Link */
+@media (min-width: 769px) {
+  .resume-link {
+    padding: 0.875rem 1.75rem;
+    font-size: 1rem;
+  }
 }
 
 /* ========================================
@@ -247,14 +358,14 @@ p {
 
 .video-section {
   background: #f8f9fa;
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 8px;
   text-align: center;
 }
 
 .video-section h2 {
   border-bottom: none;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 .about-video {
@@ -267,10 +378,26 @@ p {
 }
 
 figcaption {
-  margin-top: 1rem;
+  margin-top: 0.875rem;
   font-style: italic;
   color: #666;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
+}
+
+/* Desktop Video Section */
+@media (min-width: 769px) {
+  .video-section {
+    padding: 2rem;
+  }
+
+  .video-section h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  figcaption {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+  }
 }
 
 /* ========================================
@@ -279,38 +406,65 @@ figcaption {
 
 footer {
   background: white;
-  padding: 2rem;
+  padding: 1.5rem 1rem;
   text-align: center;
-  margin-top: 3rem;
+  margin-top: 2rem;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .contact-info {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
+  gap: 0.75rem;
   margin-bottom: 1rem;
 }
 
 .contact-info p {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   color: #555;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
 }
 
 .contact-icon {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   vertical-align: middle;
 }
 
 footer > p:last-child {
-  color: #888;
-  font-size: 0.9rem;
+  color: black;
+  font-size: 0.85rem;
   margin-top: 1rem;
+}
+
+/* Desktop Footer */
+@media (min-width: 769px) {
+  footer {
+    padding: 2rem;
+    margin-top: 3rem;
+  }
+
+  .contact-info {
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .contact-info p {
+    font-size: 0.95rem;
+  }
+
+  .contact-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  footer > p:last-child {
+    font-size: 0.9rem;
+  }
 }
 
 /* ========================================
@@ -318,7 +472,7 @@ footer > p:last-child {
    ======================================== */
 
 .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 label {
@@ -326,7 +480,7 @@ label {
   margin-bottom: 0.5rem;
   color: #333;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 input[type="text"],
@@ -334,10 +488,10 @@ input[type="email"],
 select,
 textarea {
   width: 100%;
-  padding: 0.875rem;
+  padding: 0.75rem;
   border: 2px solid #e0e0e0;
   border-radius: 6px;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-family: inherit;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
@@ -353,17 +507,17 @@ textarea:focus {
 
 textarea {
   resize: vertical;
-  min-height: 120px;
+  min-height: 100px;
 }
 
 .submit-btn {
   width: 100%;
-  padding: 1rem;
+  padding: 0.875rem;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   border: none;
   border-radius: 6px;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
@@ -372,6 +526,65 @@ textarea {
 .submit-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Desktop Form Styles */
+@media (min-width: 769px) {
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  label {
+    font-size: 0.95rem;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  select,
+  textarea {
+    padding: 0.875rem;
+    font-size: 1rem;
+  }
+
+  textarea {
+    min-height: 120px;
+  }
+
+  .submit-btn {
+    padding: 1rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* ========================================
+   TABLET LAYOUT (MEDIUM SCREENS)
+   ======================================== */
+
+@media (min-width: 481px) and (max-width: 768px) {
+  header h1 {
+    font-size: 1.65rem;
+  }
+
+  .print-name {
+    font-size: 2.25rem;
+  }
+
+  h2 {
+    font-size: 1.65rem;
+  }
+
+  main {
+    padding: 1.75rem;
+    gap: 1.75rem;
+  }
+
+  .sidebar-section {
+    padding: 1.4rem;
+  }
+
+  .education li {
+    padding: 1.15rem;
+  }
 }
 
 /* ========================================
