@@ -269,3 +269,102 @@ nav {
         padding-left: 20px;
       }
     }
+
+
+    /* Base styles for navigation */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  list-style: none;
+  background-color: #fff;
+  padding: 0.5rem 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.dropdown-content li {
+  padding: 0.5rem 1rem;
+}
+
+/* Show dropdown on desktop hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Hide the actual checkboxes */
+#menu-toggle,
+#dropdown-toggle {
+  display: none;
+}
+
+/* Hamburger icon hidden by default (desktop) */
+#hamburger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+  padding: 0.5rem;
+}
+
+/* MOBILE STYLES */
+@media screen and (max-width: 768px) {
+  
+  /* Show hamburger icon */
+  #hamburger {
+    display: block;
+  }
+
+  /* Hide nav links by default */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    padding: 1rem 0;
+  }
+
+  /* Show nav links when hamburger checked */
+  #menu-toggle:checked + #hamburger + .nav-links {
+    display: flex;
+  }
+
+  /* Dropdown label looks clickable */
+  .dropdown-label {
+    cursor: pointer;
+    display: block;
+    padding: 0.5rem 1rem;
+  }
+
+  /* Hide dropdown initially */
+  .dropdown-content {
+    display: none;
+    position: static; /* stack in mobile */
+    padding-left: 1rem;
+    box-shadow: none;
+  }
+
+  /* Show dropdown when checkbox is checked */
+  #dropdown-toggle:checked + .dropdown-label + .dropdown-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Nav items styling for mobile */
+  .nav-links li {
+    padding: 0.5rem 1rem;
+  }
+}
