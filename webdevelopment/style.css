@@ -1082,3 +1082,369 @@ section[id] {
 }
 
 
+/* ========================================
+   Navigation Bar Styles - Flexbox Layout
+   ======================================== */
+
+nav {
+  margin-top: 1.5rem;
+  position: relative;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li {
+  margin: 0;
+  position: relative;
+}
+
+.nav-links a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+/* ========================================
+   Hover and Active States
+   ======================================== */
+
+/* Hover Effect */
+.nav-links a:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Active Page Styling */
+.nav-links a.active {
+  background: white;
+  color: #667eea;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Focus State for Accessibility */
+.nav-links a:focus {
+  outline: 3px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 2px;
+}
+
+/* ========================================
+   Dropdown Menu Styles - Desktop
+   ======================================== */
+
+/* Dropdown Container */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  z-index: 1000;
+  overflow: hidden;
+  list-style: none;
+  padding: 0;
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 0.75rem 1rem;
+  display: block;
+  background: white;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid #eee;
+  font-weight: normal;
+}
+
+.dropdown-content a:last-child {
+  border-bottom: none;
+}
+
+.dropdown-content a:hover {
+  background: #f0f0f0;
+  color: #667eea;
+  transform: translateY(0);
+}
+
+.dropdown-content li {
+  padding: 0;
+  white-space: nowrap;
+}
+
+/* Desktop hover functionality */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Dropdown Arrow Indicator */
+.dropdown-main-link::after {
+  content: " ▼";
+  font-size: 0.7rem;
+  margin-left: 0.3rem;
+}
+
+/* Make dropdown label behave like link on desktop */
+.dropdown-label {
+  display: none; /* Hidden on desktop */
+  cursor: pointer;
+}
+
+/* Show main dropdown link on desktop */
+.dropdown-main-link {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.dropdown-main-link:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* ========================================
+   Hamburger Menu - Mobile Only
+   ======================================== */
+
+#menu-toggle {
+  display: none;
+}
+
+#hamburger {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: white;
+  padding: 0.5rem;
+  user-select: none;
+}
+
+#dropdown-toggle {
+  display: none;
+}
+
+.dropdown-label {
+  cursor: pointer;
+  display: none;
+}
+
+/* ========================================
+   Mobile Responsive Navigation
+   Max-width: 768px
+   ======================================== */
+
+@media (max-width: 768px) {
+  /* Show hamburger icon on mobile */
+  #hamburger {
+    display: block;
+    color: white;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  /* Hide nav links by default on mobile */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 1rem 0;
+    gap: 0;
+    z-index: 999;
+  }
+
+  /* Show nav links when hamburger is checked */
+  #menu-toggle:checked ~ .nav-links {
+    display: flex;
+  }
+
+  .nav-links a {
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem 2rem;
+    border-radius: 0;
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  /* Mobile dropdown styling */
+  .dropdown-content {
+    position: static;
+    display: none;
+    margin-top: 0;
+    width: 100%;
+    box-shadow: none;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .dropdown-content li {
+    display: block;
+    width: 100%;
+    padding: 0;
+  }
+
+  .dropdown-content a {
+    display: block;
+    width: 100%;
+    color: white;
+    background: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.75rem 2rem;
+    text-align: left;
+    text-decoration: none;
+  }
+
+  .dropdown-content li:last-child a {
+    border-bottom: none;
+  }
+
+  .dropdown-content a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+
+  /* Show dropdown label on mobile */
+  .dropdown-label {
+    display: block;
+    width: 100%;
+  }
+
+  .dropdown-label a {
+    pointer-events: auto; /* Allow clicking to navigate on mobile if needed */
+    width: 100%;
+  }
+
+  /* Style the Projects link in the label */
+  .dropdown-label > a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+  }
+
+  /* Add arrow indicator to dropdown label on mobile */
+  .dropdown-label::after {
+    content: " ▼";
+    font-size: 0.7rem;
+    margin-left: 0.3rem;
+    color: white;
+    transition: transform 0.3s;
+  }
+
+  /* Rotate arrow when dropdown is open */
+  #dropdown-toggle:checked + .dropdown-label::after {
+    transform: rotate(180deg);
+  }
+
+  /* Show dropdown when checkbox is checked */
+  #dropdown-toggle:checked ~ .dropdown-content {
+    display: block;
+  }
+
+  .dropdown-content li {
+    display: block;
+    width: 100%;
+  }
+
+  /* Ensure all three dropdown items are visible */
+  #dropdown-toggle:checked ~ .dropdown-content li {
+    display: block;
+  }
+
+  /* Disable hover dropdown on mobile */
+  .dropdown:hover .dropdown-content {
+    display: none;
+  }
+
+  /* Override desktop dropdown arrow */
+  .dropdown-main-link::after {
+    display: none;
+  }
+}
+
+/* ========================================
+   Sticky Navigation (Optional Enhancement)
+   ======================================== */
+
+header.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================
+   Animation for Page Load
+   ======================================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-links li {
+  animation: fadeIn 0.5s ease-in-out;
+  animation-fill-mode: both;
+}
+
+/* Staggered animation delays for each nav item */
+.nav-links li:nth-child(1) { animation-delay: 0.1s; }
+.nav-links li:nth-child(2) { animation-delay: 0.2s; }
+.nav-links li:nth-child(3) { animation-delay: 0.3s; }
+.nav-links li:nth-child(4) { animation-delay: 0.4s; }
+.nav-links li:nth-child(5) { animation-delay: 0.5s; }
+.nav-links li:nth-child(6) { animation-delay: 0.6s; }
