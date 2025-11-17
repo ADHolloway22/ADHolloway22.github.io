@@ -1209,6 +1209,16 @@ nav {
   margin-left: 0.3rem;
 }
 
+/* Make dropdown label behave like link on desktop */
+.dropdown-label {
+  cursor: pointer;
+  display: none; /* Hidden on desktop */
+}
+
+.dropdown-label a {
+  cursor: pointer;
+}
+
 /* ========================================
    Hamburger Menu - Mobile Only
    ======================================== */
@@ -1322,7 +1332,22 @@ nav {
   }
 
   .dropdown-label a {
-    pointer-events: none; /* Prevent link click on mobile */
+    pointer-events: auto; /* Allow clicking to navigate on mobile if needed */
+    width: 100%;
+  }
+
+  /* Style the Projects link in the label */
+  .dropdown-label > a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
   }
 
   /* Add arrow indicator to dropdown label on mobile */
