@@ -1,4 +1,16 @@
 /* ========================================
+   FILE: nav.css
+   AUTHOR: Ashton Holloway
+   DATE: November 16, 2025
+   DESCRIPTION: Navigation bar stylesheet for portfolio website. Features 
+                responsive Flexbox navigation with hamburger menu for mobile 
+                devices, dropdown menus with hover and click functionality, 
+                smooth animations, accessibility focus states, and sticky 
+                header option. Includes desktop hover dropdowns and mobile 
+                accordion-style navigation with checkbox toggles.
+   ======================================== */
+
+/* ========================================
    Navigation Bar Styles - Flexbox Layout
    ======================================== */
 
