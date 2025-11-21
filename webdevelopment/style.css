@@ -1448,3 +1448,200 @@ header.sticky {
 .nav-links li:nth-child(4) { animation-delay: 0.4s; }
 .nav-links li:nth-child(5) { animation-delay: 0.5s; }
 .nav-links li:nth-child(6) { animation-delay: 0.6s; }
+
+
+ /* Table-specific styles */
+    .table-section {
+      margin: 40px auto;
+      max-width: 1000px;
+      padding: 20px;
+    }
+
+    .table-section h2 {
+      color: #333;
+      margin-bottom: 10px;
+      font-size: 1.8rem;
+    }
+
+    .table-section h3 {
+      color: #666;
+      margin-bottom: 25px;
+      font-size: 1.2rem;
+      font-weight: normal;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 3px solid #667eea;
+      border-radius: 8px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    caption {
+      caption-side: top;
+      padding: 15px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #667eea;
+      text-align: left;
+      background-color: #f8f9ff;
+      border: 2px solid #667eea;
+      border-bottom: none;
+      border-radius: 8px 8px 0 0;
+    }
+
+    thead {
+      background-color: #667eea;
+      color: white;
+    }
+
+    th {
+      padding: 15px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+    }
+
+    tbody tr {
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    /* First row - custom background */
+    tbody tr:nth-child(1) {
+      background-color: #e8eaf6;
+    }
+
+    /* Second row - white background */
+    tbody tr:nth-child(2) {
+      background-color: #ffffff;
+    }
+
+    /* Third row - same as first */
+    tbody tr:nth-child(3) {
+      background-color: #e8eaf6;
+    }
+
+    /* Fourth row - white */
+    tbody tr:nth-child(4) {
+      background-color: #ffffff;
+    }
+
+    /* Fifth row - same as first and third */
+    tbody tr:nth-child(5) {
+      background-color: #e8eaf6;
+    }
+
+    tbody tr:hover {
+      background-color: #d1d5f7 !important;
+      transform: scale(1.01);
+      box-shadow: 0 4px 8px rgba(102, 126, 234, 0.2);
+    }
+
+    td {
+      padding: 12px 15px;
+      border-bottom: 1px solid #e0e0e0;
+      color: #333;
+    }
+
+    tfoot {
+      background-color: #f8f9ff;
+      font-weight: bold;
+      border-top: 3px solid #667eea;
+    }
+
+    tfoot td {
+      padding: 15px;
+      color: #667eea;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    /* Responsive design for tablets */
+    @media screen and (max-width: 768px) {
+      .table-section {
+        padding: 15px;
+        margin: 20px auto;
+      }
+
+      .table-section h2 {
+        font-size: 1.5rem;
+      }
+
+      .table-section h3 {
+        font-size: 1.1rem;
+      }
+
+      caption {
+        font-size: 1.1rem;
+        padding: 12px;
+      }
+
+      table {
+        font-size: 0.9rem;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+
+      th, td {
+        padding: 10px;
+      }
+    }
+
+    /* Stack table for mobile screens */
+    @media screen and (max-width: 480px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+
+      tr {
+        margin-bottom: 15px;
+        border: 2px solid #667eea;
+        border-radius: 8px;
+        background-color: white !important;
+      }
+
+      tr:hover {
+        background-color: #f8f9ff !important;
+      }
+
+      td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      td:last-child {
+        border-bottom: none;
+      }
+
+      td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        font-weight: bold;
+        color: #667eea;
+        text-align: left;
+      }
+
+      tfoot td {
+        text-align: center;
+        padding: 15px;
+      }
+
+      tfoot td:before {
+        content: none;
+      }
+    }
