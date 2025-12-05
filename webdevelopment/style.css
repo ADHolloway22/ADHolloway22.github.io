@@ -1677,3 +1677,21 @@ header.sticky {
     box-shadow: 0 0 15px rgba(102, 126, 234, 0.6);
   }
 }
+
+
+/* Custom font from Google Fonts applied to site */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+body {
+  font-family: 'Poppins', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Custom styles for all <h1> or <h2> elements */
+h1, h2 {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 2px;
+  text-decoration: underline;
+  font-family: 'Poppins', sans-serif; /* Ensure headings use Poppins */
+  font-size: 2.5rem;
+  color: black;
+}
