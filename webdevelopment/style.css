@@ -1695,3 +1695,287 @@ h1, h2 {
   font-size: 2.5rem;
   color: black;
 }
+
+
+
+
+
+/* Ensure table section fits properly on all screens */
+.table-section {
+  margin: 40px auto;
+  max-width: 1000px;
+  padding: 20px;
+  width: 100%; /* Important for mobile */
+  box-sizing: border-box;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.table-section h2 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+  word-wrap: break-word;
+}
+
+.table-section h3 {
+  color: #666;
+  margin-bottom: 25px;
+  font-size: 1.2rem;
+  font-weight: normal;
+  word-wrap: break-word;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px solid #667eea;
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+caption {
+  caption-side: top;
+  padding: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #667eea;
+  text-align: left;
+  background-color: #f8f9ff;
+  border: 2px solid #667eea;
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  word-wrap: break-word;
+}
+
+thead {
+  background-color: #667eea;
+  color: white;
+}
+
+th {
+  padding: 15px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+tbody tr {
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #e8eaf6;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+tbody tr:hover {
+  background-color: #d1d5f7 !important;
+  transform: scale(1.01);
+  box-shadow: 0 4px 8px rgba(102, 126, 234, 0.2);
+}
+
+td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #e0e0e0;
+  color: #333;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+tfoot {
+  background-color: #f8f9ff;
+  font-weight: bold;
+  border-top: 3px solid #667eea;
+}
+
+tfoot td {
+  padding: 15px;
+  color: #667eea;
+  text-align: center;
+  font-size: 0.95rem;
+  word-wrap: break-word;
+}
+
+/* ========================================
+   TABLET VIEW (768px and below)
+   ======================================== */
+@media screen and (max-width: 768px) {
+  .table-section {
+    padding: 15px;
+    margin: 20px auto;
+    width: calc(100% - 30px); /* Account for main padding */
+  }
+
+  .table-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .table-section h3 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+  }
+
+  caption {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  table {
+    font-size: 0.9rem;
+    border: 2px solid #667eea;
+  }
+
+  th, td {
+    padding: 10px 8px;
+    font-size: 0.85rem;
+  }
+
+  tfoot td {
+    font-size: 0.85rem;
+    padding: 12px 8px;
+  }
+}
+
+/* ========================================
+   MOBILE VIEW (480px and below) - STACKED LAYOUT
+   ======================================== */
+@media screen and (max-width: 480px) {
+  .table-section {
+    padding: 10px;
+    margin: 15px auto;
+    width: calc(100% - 20px); /* Fit within main padding */
+  }
+
+  .table-section h2 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+  }
+
+  .table-section h3 {
+    font-size: 1rem;
+    margin-bottom: 12px;
+  }
+
+  caption {
+    font-size: 0.95rem;
+    padding: 10px 8px;
+  }
+
+  /* Stack table rows on mobile */
+  table, thead, tbody, th, td, tr {
+    display: block;
+    width: 100%;
+  }
+
+  /* Hide table headers */
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  /* Style each row as a card */
+  tr {
+    margin-bottom: 15px;
+    border: 2px solid #667eea;
+    border-radius: 8px;
+    background-color: white !important;
+    overflow: hidden;
+  }
+
+  tr:hover {
+    background-color: #f8f9ff !important;
+  }
+
+  /* Style table cells with labels */
+  td {
+    border: none;
+    position: relative;
+    padding: 12px 12px 12px 45%;
+    text-align: right;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 0.85rem;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  td:last-child {
+    border-bottom: none;
+  }
+
+  /* Add labels before each cell */
+  td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: bold;
+    color: #667eea;
+    text-align: left;
+    font-size: 0.8rem;
+    width: 40%;
+    word-wrap: break-word;
+  }
+
+  /* Footer cell styling */
+  tfoot td {
+    text-align: center;
+    padding: 15px 12px;
+    border-bottom: none;
+    font-size: 0.8rem;
+    display: block;
+  }
+
+  tfoot td:before {
+    content: none;
+  }
+}
+
+/* ========================================
+   EXTRA SMALL MOBILE (360px and below)
+   ======================================== */
+@media screen and (max-width: 360px) {
+  .table-section {
+    padding: 8px;
+    margin: 10px auto;
+    width: calc(100% - 16px);
+  }
+
+  .table-section h2 {
+    font-size: 1.2rem;
+  }
+
+  .table-section h3 {
+    font-size: 0.95rem;
+  }
+
+  caption {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  td {
+    padding: 10px 10px 10px 42%;
+    font-size: 0.8rem;
+  }
+
+  td:before {
+    font-size: 0.75rem;
+    left: 10px;
+    width: 38%;
+  }
+
+  tfoot td {
+    font-size: 0.75rem;
+    padding: 12px 10px;
+  }
+}
