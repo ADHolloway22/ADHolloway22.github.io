@@ -1699,15 +1699,14 @@ h1, h2 {
 
 
 
-
 /* Ensure table section fits properly on all screens */
 .table-section {
   margin: 40px auto;
   max-width: 1000px;
   padding: 20px;
-  width: 100%; /* Important for mobile */
+  width: 100%;
   box-sizing: border-box;
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  overflow-x: hidden;
 }
 
 .table-section h2 {
@@ -1715,6 +1714,7 @@ h1, h2 {
   margin-bottom: 10px;
   font-size: 1.8rem;
   word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .table-section h3 {
@@ -1723,6 +1723,7 @@ h1, h2 {
   font-size: 1.2rem;
   font-weight: normal;
   word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 table {
@@ -1747,6 +1748,7 @@ caption {
   border-bottom: none;
   border-radius: 8px 8px 0 0;
   word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 thead {
@@ -1786,6 +1788,7 @@ td {
   color: #333;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 tfoot {
@@ -1800,6 +1803,7 @@ tfoot td {
   text-align: center;
   font-size: 0.95rem;
   word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* ========================================
@@ -1809,7 +1813,7 @@ tfoot td {
   .table-section {
     padding: 15px;
     margin: 20px auto;
-    width: calc(100% - 30px); /* Account for main padding */
+    width: calc(100% - 30px);
   }
 
   .table-section h2 {
@@ -1844,12 +1848,13 @@ tfoot td {
 
 /* ========================================
    MOBILE VIEW (480px and below) - STACKED LAYOUT
+   NO WORD OVERLAP
    ======================================== */
 @media screen and (max-width: 480px) {
   .table-section {
     padding: 10px;
     margin: 15px auto;
-    width: calc(100% - 20px); /* Fit within main padding */
+    width: calc(100% - 20px);
   }
 
   .table-section h2 {
@@ -1863,8 +1868,9 @@ tfoot td {
   }
 
   caption {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     padding: 10px 8px;
+    line-height: 1.4;
   }
 
   /* Stack table rows on mobile */
@@ -1881,58 +1887,78 @@ tfoot td {
   }
 
   /* Style each row as a card */
-  tr {
+  tbody tr {
     margin-bottom: 15px;
     border: 2px solid #667eea;
     border-radius: 8px;
     background-color: white !important;
     overflow: hidden;
+    padding: 0;
   }
 
-  tr:hover {
+  tbody tr:hover {
     background-color: #f8f9ff !important;
+    transform: scale(1);
   }
 
-  /* Style table cells with labels */
+  /* CRITICAL: Prevent word overlap with full-width stacked layout */
   td {
+    display: block;
+    width: 100%;
     border: none;
-    position: relative;
-    padding: 12px 12px 12px 45%;
-    text-align: right;
+    padding: 10px 12px;
+    text-align: left;
     border-bottom: 1px solid #e0e0e0;
     font-size: 0.85rem;
-    min-height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    line-height: 1.5;
+    position: relative;
+    min-height: auto;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
 
   td:last-child {
     border-bottom: none;
   }
 
-  /* Add labels before each cell */
+  /* Label styling - appears above content */
   td:before {
     content: attr(data-label);
-    position: absolute;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
+    display: block;
     font-weight: bold;
     color: #667eea;
-    text-align: left;
-    font-size: 0.8rem;
-    width: 40%;
+    font-size: 0.75rem;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Ensure star ratings don't wrap awkwardly */
+  td[data-label="Confidence Level"] {
+    font-size: 1.2rem;
+    line-height: 1;
   }
 
   /* Footer cell styling */
+  tfoot tr {
+    margin-bottom: 0;
+    border: none;
+    background-color: #f8f9ff !important;
+  }
+
   tfoot td {
+    display: block;
+    width: 100%;
     text-align: center;
     padding: 15px 12px;
-    border-bottom: none;
+    border: none;
     font-size: 0.8rem;
-    display: block;
+    line-height: 1.5;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   tfoot td:before {
@@ -1952,30 +1978,69 @@ tfoot td {
 
   .table-section h2 {
     font-size: 1.2rem;
+    line-height: 1.3;
   }
 
   .table-section h3 {
     font-size: 0.95rem;
+    line-height: 1.4;
   }
 
   caption {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     padding: 8px;
+    line-height: 1.3;
+  }
+
+  tbody tr {
+    margin-bottom: 12px;
   }
 
   td {
-    padding: 10px 10px 10px 42%;
+    padding: 8px 10px;
     font-size: 0.8rem;
+    line-height: 1.4;
   }
 
   td:before {
-    font-size: 0.75rem;
-    left: 10px;
-    width: 38%;
+    font-size: 0.7rem;
+    margin-bottom: 3px;
+  }
+
+  td[data-label="Confidence Level"] {
+    font-size: 1.1rem;
   }
 
   tfoot td {
     font-size: 0.75rem;
     padding: 12px 10px;
+    line-height: 1.4;
+  }
+}
+
+/* ========================================
+   ADDITIONAL SAFETY: Prevent ANY overflow
+   ======================================== */
+@media screen and (max-width: 480px) {
+  /* Ensure main container doesn't cause overflow */
+  main {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Force all text elements to break */
+  .table-section *,
+  table *,
+  td *,
+  th * {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    max-width: 100%;
+  }
+
+  /* Prevent long URLs or text from causing overflow */
+  a {
+    word-break: break-all;
   }
 }
