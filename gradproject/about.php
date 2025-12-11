@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="nav.css" />
+</head>
+
+<body>
+  <?php include "header.html"; ?>
+
+  <!-- MAIN GRID CONTAINER -->
+  <main>
+    <!-- Resume Link (spans full width) -->
+    <a href="media/Hollowayresume.pdf" class="resume-link">Download My Resume</a>
+
+    <!-- Name Header (spans full width) -->
+    <h1 class="print-name">Ashton Holloway</h1>
+
+    <!-- SIDEBAR SECTION (left column) -->
+    <aside class="sidebar-section">
+      <h2>Background</h2>
+      <img 
+        src="media/Profilepicture.jpg" 
+        alt="Ashton Holloway smiling in a professional headshot" 
+        class="profile-image"
+      />
+      <p>
+        My name is Ashton Holloway, and I am currently studying web development. 
+        I enjoy learning how technology can be used to create meaningful and accessible online experiences. 
+        This site will highlight my progress and give you insight into who I am as a student and creator.
+      </p>
+
+      <h3>My Hobbies</h3>
+      <ul class="styled-list">
+        <li>Lifting weights at the gym</li>
+        <li>Playing basketball</li>
+        <li>Watching sports</li>
+        <li>Spending time with friends and family</li>
+      </ul>
+    </aside>
+
+    <!-- MAIN CONTENT SECTION (right column) -->
+    <section class="main-content">
+      <div>
+        <h2>Education</h2>
+        <ul class="education">
+          <li>
+            <strong>University of Missouri</strong><br>
+            Master's in Business Administration<br>
+            Expected Graduation: May 2026<br>
+            GPA: 3.75/4.0 - Dean's List 
+          </li>
+          <li>
+            <strong>Park University</strong><br>
+            Bachelor of Science in Business Administration<br>
+            Graduated: December 2024<br>
+            GPA: 3.95/4.0 - Suma Cum Laude 
+          </li>
+          <li>
+            <strong>Kearney High School</strong><br>
+            High School Diploma<br>
+            Graduated: May 2022<br>
+            GPA: 3.85/4.0 - Honor Roll
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Interests</h2>
+        <p>
+          Outside of academics, I am passionate about fitness, teamwork, and exploring creative projects. 
+          These interests help me stay motivated and bring balance to my daily routine. I believe in 
+          continuous learning and personal growth, which drives me to take on new challenges and develop 
+          skills that will benefit my future career.
+        </p>
+      </div>
+    </section>
+
+    <!-- VIDEO SECTION (spans full width) -->
+    <section class="video-section">
+      <h2>About Me Video</h2>
+      <figure>
+        <video controls class="about-video">
+          <source src="media/VideoResume.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <figcaption>A short video introducing my background, interests, and goals.</figcaption>
+      </figure>
+    </section>
+  </main>
+
+  <?php include "footer.html"; ?>
+</body>
+</html>
